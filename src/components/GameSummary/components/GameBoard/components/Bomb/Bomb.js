@@ -10,9 +10,7 @@ class Bomb extends Component {
         this.checkIfWin = this.checkIfWin.bind(this);
     }
 
-    checkIfWin() {
-        this.props.setWinCondition(this.props.fiveGallonAmt === 4);
-    }
+    checkIfWin = () => this.props.setWinCondition(this.props.fiveGallonAmt === 4);
 
     render() {
         return (
@@ -20,7 +18,7 @@ class Bomb extends Component {
                 <div className="bomb-div" title="Da Bomb">
                     <BombTimer timeExpired={this.checkIfWin} endTimer={this.props.gameOver} />
                 </div>
-                <button className="try-jug" disabled={this.props.isGameOver} onClick={this.checkIfWin}>PLACE JUG</button>
+                <button className="try-jug" disabled={this.props.gameOver} onClick={this.checkIfWin}>PLACE JUG</button>
             </div>
         );
     }
